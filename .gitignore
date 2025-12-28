@@ -108,7 +108,10 @@ dmypy.json
 *.swp
 *.swo
 *~
-
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/shelf/
 # OS
 .DS_Store
 .DS_Store?

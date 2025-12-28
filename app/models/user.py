@@ -17,12 +17,12 @@ class User(Base):
     full_name = Column(String, nullable=True)
     is_active = Column(Boolean, default=True)
     is_admin = Column(Boolean, default=False)
+    user_withdrawal_status = Column(String(50), default="available")
 
     created_at = Column(DateTime, server_default=func.now())
     updated_at = Column(DateTime, server_default=func.now(),
                         onupdate=func.now())
 
-    # Relationships
     transactions = relationship("Transaction", back_populates="user")
     balance = relationship("Balance", back_populates="user", uselist=False)
     address_reservations = relationship("AddressReservation",
@@ -40,5 +40,4 @@ class Balance(Base):
     updated_at = Column(DateTime, server_default=func.now(),
                         onupdate=func.now())
 
-    # Relationships
     user = relationship("User", back_populates="balance")
